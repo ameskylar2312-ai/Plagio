@@ -1,0 +1,713 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PLAGIO.EXE | No al plagio</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --pink: #ff4fc8;
+  --purple: #a855f7;
+  --bg: #09070d;
+  --card: #15111c;
+  --white: #f7effb;
+  --muted: #b6a8bd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 80% 15%, #7c20802b, transparent 35%),
+    radial-gradient(circle at 10% 70%, #e52d9b16, transparent 35%);
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 8%;
+  background: #09070deF;
+  border-bottom: 1px solid #ff4fc82c;
+  backdrop-filter: blur(12px);
+}
+
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--pink);
+  font-size: 19px;
+  font-weight: 800;
+  text-shadow: 0 0 12px #ff4fc8;
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 12px;
+  margin-left: 18px;
+  transition: .3s;
+}
+
+nav a:hover {
+  color: var(--pink);
+}
+
+.hero {
+  min-height: 590px;
+  padding: 110px 8% 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.tag {
+  color: var(--pink);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(42px, 8vw, 82px);
+  line-height: 1.15;
+  max-width: 850px;
+  text-shadow: 0 0 25px #ff4fc832;
+}
+
+.hero h1 span {
+  color: var(--pink);
+}
+
+.hero p {
+  color: var(--muted);
+  max-width: 570px;
+  line-height: 1.8;
+  margin-top: 25px;
+  font-size: 15px;
+}
+
+.btn {
+  display: inline-block;
+  width: fit-content;
+  padding: 14px 24px;
+  margin-top: 30px;
+  border: 1px solid var(--pink);
+  background: #ff4fc817;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 700;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: var(--pink);
+  color: #09070d;
+  box-shadow: 0 0 25px #ff4fc8;
+}
+
+.status {
+  color: #ff83d7;
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-top: 55px;
+}
+
+section {
+  padding: 85px 8%;
+  scroll-margin-top: 65px;
+}
+
+.section-label {
+  color: var(--pink);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(24px, 4vw, 38px);
+  margin-bottom: 22px;
+}
+
+.description {
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 700px;
+  margin-bottom: 30px;
+}
+
+.highlight {
+  color: var(--pink);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 17px;
+  margin-top: 30px;
+}
+
+.card {
+  background: linear-gradient(145deg, #191321, #100d16);
+  border: 1px solid #ff4fc82b;
+  border-radius: 10px;
+  padding: 25px;
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: var(--pink);
+  box-shadow: 0 8px 30px #ff4fc819;
+}
+
+.card .number {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--pink);
+  font-size: 25px;
+  margin-bottom: 18px;
+}
+
+.card h3 {
+  margin-bottom: 12px;
+  font-size: 17px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.dark-section {
+  background: #110d17;
+  border-top: 1px solid #ff4fc81b;
+  border-bottom: 1px solid #ff4fc81b;
+}
+
+.list {
+  display: grid;
+  gap: 13px;
+  max-width: 750px;
+}
+
+.list-item {
+  display: flex;
+  gap: 15px;
+  padding: 17px;
+  background: var(--card);
+  border-radius: 7px;
+  border-left: 3px solid var(--pink);
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.symbol {
+  color: var(--pink);
+  font-weight: bold;
+}
+
+.quote {
+  padding: 40px;
+  border: 1px solid var(--pink);
+  border-radius: 10px;
+  background: #ff4fc80a;
+  font-size: clamp(19px, 3vw, 27px);
+  line-height: 1.6;
+  max-width: 800px;
+  text-align: center;
+}
+
+.quote span {
+  color: var(--pink);
+}
+
+.quiz {
+  max-width: 700px;
+  background: var(--card);
+  padding: 30px;
+  border: 1px solid #ff4fc84b;
+  border-radius: 10px;
+}
+
+.quiz p {
+  margin: 20px 0;
+  font-weight: 600;
+}
+
+.quiz button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 14px;
+  border: 1px solid #42344b;
+  background: #211a2b;
+  color: white;
+  border-radius: 5px;
+  text-align: left;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.quiz button:hover {
+  border-color: var(--pink);
+  background: #ff4fc819;
+}
+
+#feedback {
+  color: var(--pink);
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+footer {
+  padding: 35px 8%;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid #ff4fc82b;
+  font-size: 12px;
+  line-height: 2;
+}
+
+footer strong {
+  color: var(--pink);
+}
+
+@media(max-width: 600px) {
+  nav {
+    padding: 15px 5%;
+  }
+
+  nav a {
+    font-size: 10px;
+    margin-left: 8px;
+  }
+
+  .hero {
+    padding: 90px 7%;
+    min-height: 540px;
+  }
+
+  section {
+    padding: 65px 7%;
+  }
+
+  .quote {
+    padding: 25px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">PLAGIO.EXE</div>
+  <div>
+    <a href="#concepto">INICIO</a>
+    <a href="#tipos">TIPOS</a>
+    <a href="#solucion">SOLUCIONES</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="tag">[ SYSTEM ALERT // 001 ]</div>
+
+  <h1>
+    ¿TU IDEA O LA DE <span>ALGUIEN MÁS?</span>
+  </h1>
+
+  <p>
+    Las ideas tienen autor. La creatividad tiene valor.
+    Descubre qué es el plagio, cómo identificarlo
+    y por qué respetar las creaciones ajenas importa.
+  </p>
+
+  <a href="#concepto" class="btn">INICIAR INVESTIGACIÓN →</a>
+
+  <div class="status">● SISTEMA ACTIVO — ORIGINALIDAD REQUERIDA</div>
+</header>
+
+<section id="concepto">
+  <div class="section-label">01 // DEFINICIÓN</div>
+  <h2>¿QUÉ ES EL <span class="highlight">PLAGIO?</span></h2>
+
+  <p class="description">
+    El plagio consiste en presentar ideas, textos, imágenes
+    o trabajos de otras personas como propios, sin reconocer
+    a su verdadero autor.
+    <br><br>
+    En otras palabras: apropiarse del esfuerzo y la creatividad
+    de alguien más.
+  </p>
+
+  <div class="card">
+    <div class="number">!</div>
+    <h3>RECUERDA</h3>
+    <p>
+      No todo lo que encuentras en internet es de uso libre.
+      Que una información esté disponible no significa que
+      puedas atribuirte su autoría.
+    </p>
+  </div>
+</section>
+
+<section class="dark-section" id="tipos">
+  <div class="section-label">02 // IDENTIFICACIÓN</div>
+  <h2>TIPOS DE <span class="highlight">PLAGIO</span></h2>
+
+  <p class="description">
+    No siempre es copiar y pegar. Existen distintas formas
+    de utilizar contenido ajeno sin darle el reconocimiento
+    correspondiente.
+  </p>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="number">01</div>
+      <h3>Plagio textual</h3>
+      <p>Copiar directamente un texto sin citar ni reconocer
+      a su autor.</p>
+    </div>
+
+    <div class="card">
+      <div class="number">02</div>
+      <h3>Plagio de ideas</h3>
+      <p>Utilizar pensamientos o propuestas ajenas
+      presentándolas como propias.</p>
+    </div>
+
+    <div class="card">
+      <div class="number">03</div>
+      <h3>Autoplagio</h3>
+      <p>Presentar un trabajo propio anterior como si fuera
+      completamente nuevo, sin aclararlo cuando corresponde.</p>
+    </div>
+
+    <div class="card">
+      <div class="number">04</div>
+      <h3>Plagio visual</h3>
+      <p>Utilizar ilustraciones, fotografías o creaciones
+      ajenas sin reconocer su procedencia.</p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="section-label">03 // CONSECUENCIAS</div>
+  <h2>¿QUÉ PASA SI <span class="highlight">PLAGIAS?</span></h2>
+
+  <div class="list">
+    <div class="list-item">
+      <span class="symbol">✕</span>
+      Pérdida de credibilidad y confianza.
+    </div>
+
+    <div class="list-item">
+      <span class="symbol">✕</span>
+      Calificaciones bajas o anulación de trabajos.
+    </div>
+
+    <div class="list-item">
+      <span class="symbol">✕</span>
+      Posibles sanciones académicas.
+    </div>
+
+    <div class="list-item">
+      <span class="symbol">✕</span>
+      Problemas relacionados con los derechos de autor.
+    </div>
+
+    <div class="list-item">
+      <span class="symbol">✕</span>
+      Menor desarrollo de la creatividad y el pensamiento crítico.
+    </div>
+  </div>
+</section>
+
+<section class="dark-section" id="solucion">
+  <div class="section-label">04 // PREVENCIÓN</div>
+  <h2>¿CÓMO EVITAR EL <span class="highlight">PLAGIO?</span></h2>
+
+  <p class="description">
+    Ser original no significa saberlo todo. Significa aprender
+    a investigar, construir tus propias ideas y reconocer
+    de dónde viene la información.
+  </p>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="number">01</div>
+      <h3>Investiga</h3>
+      <p>Consulta fuentes confiables y compara información.</p>
+    </div>
+
+    <div class="card">
+      <div class="number">02</div>
+      <h3>Comprende</h3>
+      <p>Lee, analiza y explica lo aprendido con tus propias palabras.</p>
+    </div>
+
+    <div class="card">
+      <div class="number">03</div>
+      <h3>Cita</h3>
+      <p>Reconoce a los autores cuando utilices sus ideas o textos.</p>
+    </div>
+
+    <div class="card">
+      <div class="number">04</div>
+      <h3>Referencias</h3>
+      <p>Incluye una bibliografía con las fuentes consultadas.</p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="section-label">05 // ZONA DE ALERTA</div>
+  <h2>LO QUE NO DEBES <span class="highlight">HACER</span></h2>
+
+  <div class="list">
+    <div class="list-item">
+      <span class="symbol">!</span>
+      Copiar y pegar sin reconocer la fuente.
+    </div>
+
+    <div class="list-item">
+      <span class="symbol">!</span>
+      Cambiar algunas palabras y atribuirte todo el texto.
+    </div>
+
+    <div class="list-item">
+      <span class="symbol">!</span>
+      Presentar trabajos de otras personas como propios.
+    </div>
+
+    <div class="list-item">
+      <span class="symbol">!</span>
+      Utilizar imágenes ajenas sin reconocer su procedencia.
+    </div>
+
+    <div class="list-item">
+      <span class="symbol">!</span>
+      Inventar autores o referencias bibliográficas.
+    </div>
+  </div>
+</section>
+
+<section class="dark-section">
+  <div class="section-label">06 // REFLEXIÓN</div>
+  <h2>UNA IDEA QUE <span class="highlight">IMPORTA</span></h2>
+
+  <div class="quote">
+    "Tu trabajo no tiene que ser perfecto,
+    <span>tiene que ser tuyo.</span>
+    Aprender también significa reconocer
+    el esfuerzo de los demás."
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="section-label">07 // TEST DE ORIGINALIDAD</div>
+  <h2>¿QUÉ TANTO <span class="highlight">APRENDISTE?</span></h2>
+
+  <p class="description">
+    Pon a prueba tus conocimientos. Selecciona la respuesta correcta.
+  </p>
+
+  <div class="quiz">
+    <div class="tag" id="progress">PREGUNTA 01 / 05</div>
+
+    <p id="question">¿Qué es el plagio?</p>
+
+    <div id="answers"></div>
+
+    <div id="feedback"></div>
+  </div>
+</section>
+
+<footer>
+  <strong>PLAGIO.EXE</strong><br>
+  CAMPAÑA DE CONCIENTIZACIÓN ACADÉMICA<br>
+  CREA · APRENDE · RECONOCE<br><br>
+  <span>Las ideas tienen valor. Respeta su origen.</span>
+</footer>
+
+<script>
+const questions = [
+  {
+    q: "¿Qué es el plagio?",
+    a: [
+      "Presentar ideas ajenas como propias.",
+      "Investigar en internet.",
+      "Aprender algo nuevo."
+    ],
+    correct: 0
+  },
+  {
+    q: "¿Qué debes hacer si utilizas un texto de otra persona?",
+    a: [
+      "Cambiar el título.",
+      "Reconocer al autor y citar la fuente.",
+      "Eliminar su nombre."
+    ],
+    correct: 1
+  },
+  {
+    q: "¿Cuál es un ejemplo de plagio visual?",
+    a: [
+      "Crear una ilustración propia.",
+      "Tomar una fotografía y reconocer al autor.",
+      "Usar una ilustración ajena sin reconocer su procedencia."
+    ],
+    correct: 2
+  },
+  {
+    q: "¿Cuál es una consecuencia del plagio?",
+    a: [
+      "Pérdida de credibilidad.",
+      "Mayor creatividad.",
+      "Mejor aprendizaje automático."
+    ],
+    correct: 0
+  },
+  {
+    q: "¿Cómo puedes evitar el plagio?",
+    a: [
+      "Copiando y cambiando algunas palabras.",
+      "Investigando, comprendiendo y citando.",
+      "Ocultando las fuentes."
+    ],
+    correct: 1
+  }
+];
+
+let current = 0;
+let score = 0;
+let answered = false;
+
+function showQuestion() {
+  answered = false;
+
+  const q = questions[current];
+
+  document.getElementById("progress").textContent =
+    "PREGUNTA " + String(current + 1).padStart(2, "0") + " / 05";
+
+  document.getElementById("question").textContent = q.q;
+  document.getElementById("feedback").textContent = "";
+
+  const answers = document.getElementById("answers");
+  answers.innerHTML = "";
+
+  q.a.forEach((answer, index) => {
+    const button = document.createElement("button");
+    button.textContent = answer;
+    button.onclick = () => checkAnswer(index);
+    answers.appendChild(button);
+  });
+}
+
+function checkAnswer(index) {
+  if (answered) return;
+  answered = true;
+
+  const correct = questions[current].correct;
+  const buttons = document.querySelectorAll("#answers button");
+
+  if (index === correct) {
+    score++;
+    document.getElementById("feedback").textContent =
+      "✓ ¡Correcto! ¡Buen trabajo!";
+  } else {
+    document.getElementById("feedback").textContent =
+      "✕ No exactamente. La respuesta correcta era: " +
+      questions[current].a[correct];
+  }
+
+  buttons.forEach(button => button.disabled = true);
+
+  const next = document.createElement("button");
+  next.textContent = current === 4 ? "VER RESULTADO →" : "SIGUIENTE →";
+  next.style.borderColor = "#ff4fc8";
+  next.style.marginTop = "20px";
+
+  next.onclick = () => {
+    current++;
+
+    if (current < questions.length) {
+      showQuestion();
+    } else {
+      showResult();
+    }
+  };
+
+  document.getElementById("answers").appendChild(next);
+}
+
+function showResult() {
+  document.getElementById("progress").textContent =
+    "ANÁLISIS COMPLETADO";
+
+  document.getElementById("question").textContent =
+    "OBTUVISTE " + score + " / 5";
+
+  document.getElementById("answers").innerHTML = "";
+
+  document.getElementById("feedback").textContent =
+    score === 5
+      ? "¡EXCELENTE! Dominas el tema de la originalidad."
+      : score >= 3
+      ? "¡BUEN TRABAJO! Sigue practicando y aprendiendo."
+      : "¡A SEGUIR APRENDIENDO! Puedes volver a explorar la página.";
+
+  const restart = document.createElement("button");
+  restart.textContent = "REPETIR TEST ↻";
+  restart.onclick = () => {
+    current = 0;
+    score = 0;
+    showQuestion();
+  };
+
+  document.getElementById("answers").appendChild(restart);
+}
+
+showQuestion();
+</script>
+
+</body>
+</html>
