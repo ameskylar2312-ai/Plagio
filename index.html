@@ -776,17 +776,43 @@ function showResult(){
 showQuestion();
 </script>
   
-<section id="fuentes">
-  <h2>FUENTES CONSULTADAS</h2>
-  <p>Información consultada para la elaboración de este proyecto:</p>
 
-  <ul>
-    <li><a href="https://dle.rae.es/plagio" target="_blank">Real Academia Española (RAE) – Plagio</a></li>
-    <li><a href="https://www.ox.ac.uk/students/academic/guidance/skills/plagiarism" target="_blank">University of Oxford – Plagiarism</a></li>
-    <li><a href="https://usingsources.fas.harvard.edu/" target="_blank">Harvard University – Using Sources</a></li>
-    <li><a href="https://www.unesco.org/es" target="_blank">UNESCO – Educación</a></li>
-  </ul>
-</section>
+/* FUENTES CONSULTADAS */
+
+#fuentes {
+  background: #110d18;
+  border-top: 1px solid #ff4fc82b;
+}
+
+#fuentes p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+#fuentes ul {
+  list-style: none;
+  display: grid;
+  gap: 15px;
+}
+
+#fuentes li {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+#fuentes a {
+  color: var(--pink);
+  text-decoration: none;
+  transition: .3s;
+}
+
+#fuentes a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px var(--pink);
+  text-decoration: underline;
+}
 
 
 </body>
