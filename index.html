@@ -10,322 +10,436 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  --pink: #ff4fc8;
-  --purple: #a855f7;
-  --bg: #09070d;
-  --card: #15111c;
-  --white: #f7effb;
-  --muted: #b6a8bd;
+  --pink:#ff4fc8;
+  --purple:#a855f7;
+  --bg:#09070e;
+  --card:#17121f;
+  --white:#f8effb;
+  --muted:#b7aabd;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+
+body{
+  background:var(--bg);
+  color:var(--white);
+  font-family:Inter,sans-serif;
+  overflow-x:hidden;
 }
 
-body {
-  background: var(--bg);
-  color: var(--white);
-  font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
   background:
-    radial-gradient(circle at 80% 15%, #7c20802b, transparent 35%),
-    radial-gradient(circle at 10% 70%, #e52d9b16, transparent 35%);
+  radial-gradient(ellipse at 85% 15%,#a855f72b,transparent 38%),
+  radial-gradient(ellipse at 5% 65%,#ff4fc81b,transparent 35%);
 }
 
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 8%;
-  background: #09070deF;
-  border-bottom: 1px solid #ff4fc82c;
-  backdrop-filter: blur(12px);
+nav{
+  position:sticky;
+  top:0;
+  z-index:20;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:17px 7%;
+  background:#09070eee;
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid #ff4fc83b;
 }
 
-.logo {
-  font-family: 'Orbitron', sans-serif;
-  color: var(--pink);
-  font-size: 19px;
-  font-weight: 800;
-  text-shadow: 0 0 12px #ff4fc8;
+.logo{
+  font-family:Orbitron,sans-serif;
+  color:var(--pink);
+  font-weight:800;
+  letter-spacing:1px;
+  text-shadow:0 0 15px #ff4fc8;
 }
 
-nav a {
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 12px;
-  margin-left: 18px;
-  transition: .3s;
+nav a{
+  color:var(--muted);
+  text-decoration:none;
+  font-size:11px;
+  margin-left:16px;
 }
 
-nav a:hover {
-  color: var(--pink);
+nav a:hover{color:var(--pink)}
+
+.hero{
+  min-height:650px;
+  padding:85px 7%;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  align-items:center;
+  gap:30px;
+  overflow:hidden;
 }
 
-.hero {
-  min-height: 590px;
-  padding: 110px 8% 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
+.tag{
+  font-family:Orbitron,sans-serif;
+  font-size:10px;
+  letter-spacing:3px;
+  color:var(--pink);
+  margin-bottom:23px;
 }
 
-.tag {
-  color: var(--pink);
-  font-family: 'Orbitron', sans-serif;
-  font-size: 11px;
-  letter-spacing: 3px;
-  margin-bottom: 25px;
+.hero h1{
+  font-family:Orbitron,sans-serif;
+  font-size:clamp(38px,6vw,76px);
+  line-height:1.15;
 }
 
-.hero h1 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: clamp(42px, 8vw, 82px);
-  line-height: 1.15;
-  max-width: 850px;
-  text-shadow: 0 0 25px #ff4fc832;
+.hero h1 span{color:var(--pink)}
+
+.hero p{
+  color:var(--muted);
+  line-height:1.9;
+  max-width:500px;
+  font-size:14px;
+  margin-top:22px;
 }
 
-.hero h1 span {
-  color: var(--pink);
+.status{
+  margin-top:35px;
+  font-size:10px;
+  letter-spacing:2px;
+  color:#ff83d7;
 }
 
-.hero p {
-  color: var(--muted);
-  max-width: 570px;
-  line-height: 1.8;
-  margin-top: 25px;
-  font-size: 15px;
+/* ILUSTRACIÓN DIGITAL */
+
+.art{
+  min-height:370px;
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
-.btn {
-  display: inline-block;
-  width: fit-content;
-  padding: 14px 24px;
-  margin-top: 30px;
-  border: 1px solid var(--pink);
-  background: #ff4fc817;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: 700;
-  transition: .3s;
+.orbit{
+  position:absolute;
+  width:310px;
+  height:310px;
+  border:1px solid #ff4fc858;
+  border-radius:50%;
+  box-shadow:0 0 45px #ff4fc81b,inset 0 0 40px #a855f71a;
+  animation:rotate 18s linear infinite;
 }
 
-.btn:hover {
-  background: var(--pink);
-  color: #09070d;
-  box-shadow: 0 0 25px #ff4fc8;
+.orbit:before,.orbit:after{
+  content:"";
+  position:absolute;
+  border:1px solid #a855f76b;
+  border-radius:50%;
+  inset:25px;
 }
 
-.status {
-  color: #ff83d7;
-  font-size: 11px;
-  letter-spacing: 2px;
-  margin-top: 55px;
+.orbit:after{inset:55px;border-color:#ff4fc86b}
+
+@keyframes rotate{to{transform:rotate(360deg)}}
+
+.laptop{
+  position:relative;
+  z-index:2;
+  width:275px;
+  padding:12px;
+  background:#1a1323;
+  border:2px solid #ff4fc8;
+  border-radius:13px;
+  box-shadow:0 0 35px #ff4fc84d;
+  transform:rotate(-4deg);
 }
 
-section {
-  padding: 85px 8%;
-  scroll-margin-top: 65px;
+.screen{
+  height:185px;
+  background:#09070e;
+  border-radius:6px;
+  padding:16px;
+  border:1px solid #6e3479;
 }
 
-.section-label {
-  color: var(--pink);
-  font-family: 'Orbitron', sans-serif;
-  font-size: 11px;
-  letter-spacing: 3px;
-  margin-bottom: 15px;
+.screen-top{
+  display:flex;
+  gap:5px;
+  margin-bottom:18px;
 }
 
-h2 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: clamp(24px, 4vw, 38px);
-  margin-bottom: 22px;
+.dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--pink);
 }
 
-.description {
-  color: var(--muted);
-  line-height: 1.8;
-  max-width: 700px;
-  margin-bottom: 30px;
+.screen h3{
+  font-family:Orbitron,sans-serif;
+  font-size:19px;
+  color:var(--pink);
+  text-shadow:0 0 12px var(--pink);
 }
 
-.highlight {
-  color: var(--pink);
+.screen p{
+  font-size:10px;
+  color:#d6b9db;
+  margin-top:9px;
+  line-height:1.6;
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 17px;
-  margin-top: 30px;
+.screen-line{
+  height:4px;
+  width:80%;
+  background:#a855f7;
+  margin-top:13px;
+  border-radius:5px;
+  opacity:.7;
 }
 
-.card {
-  background: linear-gradient(145deg, #191321, #100d16);
-  border: 1px solid #ff4fc82b;
-  border-radius: 10px;
-  padding: 25px;
-  transition: .3s;
+.screen-line.short{width:50%;background:#ff4fc8}
+
+.laptop-base{
+  height:9px;
+  width:115%;
+  margin-left:-7.5%;
+  background:linear-gradient(90deg,#6c3479,#ff4fc8,#6c3479);
+  border-radius:2px 2px 12px 12px;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  border-color: var(--pink);
-  box-shadow: 0 8px 30px #ff4fc819;
+.float{
+  position:absolute;
+  z-index:3;
+  background:#1b1425;
+  border:1px solid #ff4fc8;
+  padding:12px;
+  border-radius:10px;
+  box-shadow:0 0 20px #ff4fc82c;
+  font-size:24px;
+  animation:float 3s ease-in-out infinite;
 }
 
-.card .number {
-  font-family: 'Orbitron', sans-serif;
-  color: var(--pink);
-  font-size: 25px;
-  margin-bottom: 18px;
+.f1{top:35px;right:10px}
+.f2{bottom:35px;left:0;animation-delay:1s}
+.f3{top:40px;left:0;animation-delay:1.5s}
+
+@keyframes float{
+  50%{transform:translateY(-12px)}
 }
 
-.card h3 {
-  margin-bottom: 12px;
-  font-size: 17px;
+/* SECCIONES */
+
+section{
+  padding:80px 8%;
+  scroll-margin-top:70px;
 }
 
-.card p {
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.8;
+.dark-section{
+  background:#110d18;
+  border-top:1px solid #ff4fc81c;
+  border-bottom:1px solid #ff4fc81c;
 }
 
-.dark-section {
-  background: #110d17;
-  border-top: 1px solid #ff4fc81b;
-  border-bottom: 1px solid #ff4fc81b;
+.label{
+  color:var(--pink);
+  font-family:Orbitron,sans-serif;
+  font-size:10px;
+  letter-spacing:3px;
+  margin-bottom:15px;
 }
 
-.list {
-  display: grid;
-  gap: 13px;
-  max-width: 750px;
+h2{
+  font-family:Orbitron,sans-serif;
+  font-size:clamp(25px,4vw,38px);
+  margin-bottom:20px;
 }
 
-.list-item {
-  display: flex;
-  gap: 15px;
-  padding: 17px;
-  background: var(--card);
-  border-radius: 7px;
-  border-left: 3px solid var(--pink);
-  color: var(--muted);
-  line-height: 1.6;
-  font-size: 14px;
+.highlight{color:var(--pink)}
+
+.description{
+  color:var(--muted);
+  line-height:1.9;
+  max-width:720px;
+  font-size:14px;
+  margin-bottom:30px;
 }
 
-.symbol {
-  color: var(--pink);
-  font-weight: bold;
+.info-box{
+  background:linear-gradient(120deg,#20152c,#14101b);
+  border:1px solid #ff4fc850;
+  border-radius:12px;
+  padding:28px;
+  max-width:800px;
+  display:flex;
+  gap:20px;
+  align-items:center;
 }
 
-.quote {
-  padding: 40px;
-  border: 1px solid var(--pink);
-  border-radius: 10px;
-  background: #ff4fc80a;
-  font-size: clamp(19px, 3vw, 27px);
-  line-height: 1.6;
-  max-width: 800px;
-  text-align: center;
+.info-icon{
+  font-size:40px;
+  color:var(--pink);
 }
 
-.quote span {
-  color: var(--pink);
+.info-box p{
+  color:var(--muted);
+  line-height:1.8;
+  font-size:13px;
 }
 
-.quiz {
-  max-width: 700px;
-  background: var(--card);
-  padding: 30px;
-  border: 1px solid #ff4fc84b;
-  border-radius: 10px;
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:18px;
+  margin-top:28px;
 }
 
-.quiz p {
-  margin: 20px 0;
-  font-weight: 600;
+.card{
+  background:linear-gradient(145deg,#1b1425,#100d16);
+  border:1px solid #ff4fc82c;
+  border-radius:12px;
+  padding:25px;
+  transition:.3s;
+  position:relative;
+  overflow:hidden;
 }
 
-.quiz button {
-  display: block;
-  width: 100%;
-  margin: 10px 0;
-  padding: 14px;
-  border: 1px solid #42344b;
-  background: #211a2b;
-  color: white;
-  border-radius: 5px;
-  text-align: left;
-  cursor: pointer;
-  transition: .2s;
+.card:hover{
+  transform:translateY(-7px);
+  border-color:var(--pink);
+  box-shadow:0 8px 30px #ff4fc81e;
 }
 
-.quiz button:hover {
-  border-color: var(--pink);
-  background: #ff4fc819;
+.card:after{
+  content:"";
+  position:absolute;
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  background:#ff4fc80c;
+  right:-45px;
+  bottom:-45px;
 }
 
-#feedback {
-  color: var(--pink);
-  margin-top: 20px;
-  font-size: 14px;
+.card-icon{
+  font-size:35px;
+  margin-bottom:18px;
 }
 
-footer {
-  padding: 35px 8%;
-  text-align: center;
-  color: var(--muted);
-  border-top: 1px solid #ff4fc82b;
-  font-size: 12px;
-  line-height: 2;
+.number{
+  color:var(--pink);
+  font-family:Orbitron,sans-serif;
+  font-size:11px;
+  letter-spacing:2px;
+  margin-bottom:10px;
 }
 
-footer strong {
-  color: var(--pink);
+.card h3{font-size:17px;margin-bottom:12px}
+
+.card p{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.8;
 }
 
-@media(max-width: 600px) {
-  nav {
-    padding: 15px 5%;
+.list{
+  display:grid;
+  gap:13px;
+  max-width:800px;
+}
+
+.list-item{
+  background:#17121f;
+  border-left:3px solid var(--pink);
+  border-radius:7px;
+  padding:17px;
+  display:flex;
+  gap:15px;
+  align-items:center;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.7;
+}
+
+.symbol{color:var(--pink);font-size:19px}
+
+.quote{
+  max-width:800px;
+  border:1px solid var(--pink);
+  background:linear-gradient(120deg,#ff4fc80e,#a855f714);
+  padding:40px;
+  border-radius:12px;
+  text-align:center;
+  font-size:clamp(19px,3vw,27px);
+  line-height:1.7;
+}
+
+.quote span{color:var(--pink)}
+
+.quiz{
+  max-width:720px;
+  background:#17121f;
+  border:1px solid #ff4fc85a;
+  padding:28px;
+  border-radius:12px;
+}
+
+.quiz p{margin:20px 0;font-weight:600;line-height:1.6}
+
+.quiz button{
+  display:block;
+  width:100%;
+  padding:15px;
+  margin:10px 0;
+  text-align:left;
+  color:white;
+  background:#211a2b;
+  border:1px solid #49334f;
+  border-radius:7px;
+  cursor:pointer;
+  font-size:13px;
+}
+
+.quiz button:hover:not(:disabled){
+  border-color:var(--pink);
+  background:#ff4fc81b;
+}
+
+.quiz button:disabled{opacity:.75;cursor:default}
+
+#feedback{
+  color:var(--pink);
+  font-size:13px;
+  line-height:1.7;
+  margin-top:15px;
+}
+
+footer{
+  padding:40px 7%;
+  text-align:center;
+  border-top:1px solid #ff4fc82b;
+  color:var(--muted);
+  font-size:11px;
+  line-height:2;
+}
+
+footer strong{
+  font-family:Orbitron,sans-serif;
+  color:var(--pink);
+  font-size:18px;
+}
+
+@media(max-width:750px){
+  .hero{
+    grid-template-columns:1fr;
+    padding-top:75px;
+    gap:10px;
   }
-
-  nav a {
-    font-size: 10px;
-    margin-left: 8px;
-  }
-
-  .hero {
-    padding: 90px 7%;
-    min-height: 540px;
-  }
-
-  section {
-    padding: 65px 7%;
-  }
-
-  .quote {
-    padding: 25px;
-  }
+  .art{min-height:350px}
+  nav{padding:15px 5%}
+  nav a{font-size:9px;margin-left:8px}
+  section{padding:65px 7%}
+  .orbit{width:275px;height:275px}
+  .laptop{width:245px}
+  .screen{height:170px}
+  .f1{right:0}
 }
 </style>
 </head>
@@ -338,128 +452,135 @@ footer strong {
     <a href="#concepto">INICIO</a>
     <a href="#tipos">TIPOS</a>
     <a href="#solucion">SOLUCIONES</a>
+    <a href="#quiz">QUIZ</a>
   </div>
 </nav>
 
 <header class="hero">
-  <div class="tag">[ SYSTEM ALERT // 001 ]</div>
+  <div>
+    <div class="tag">[ DIGITAL INVESTIGATION // 001 ]</div>
 
-  <h1>
-    ¿TU IDEA O LA DE <span>ALGUIEN MÁS?</span>
-  </h1>
+    <h1>¿TU IDEA O LA DE <span>ALGUIEN MÁS?</span></h1>
 
-  <p>
-    Las ideas tienen autor. La creatividad tiene valor.
-    Descubre qué es el plagio, cómo identificarlo
-    y por qué respetar las creaciones ajenas importa.
-  </p>
+    <p>
+      Las ideas tienen autor. La creatividad tiene valor.
+      Descubre qué es el plagio, cómo identificarlo y por qué
+      respetar las creaciones ajenas importa.
+    </p>
 
-  <a href="#concepto" class="btn">INICIAR INVESTIGACIÓN →</a>
+    <div class="status">● SISTEMA ACTIVO — ORIGINALIDAD REQUERIDA</div>
+  </div>
 
-  <div class="status">● SISTEMA ACTIVO — ORIGINALIDAD REQUERIDA</div>
+  <div class="art">
+    <div class="orbit"></div>
+
+    <div class="float f1">⚠️</div>
+    <div class="float f2">📄</div>
+    <div class="float f3">🔍</div>
+
+    <div class="laptop">
+      <div class="screen">
+        <div class="screen-top">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+
+        <h3>PLAGIO.EXE</h3>
+        <p>ANALIZANDO ORIGINALIDAD...</p>
+        <div class="screen-line"></div>
+        <div class="screen-line short"></div>
+        <p style="color:#ff4fc8">WARNING: RESPECT THE AUTHOR</p>
+      </div>
+      <div class="laptop-base"></div>
+    </div>
+  </div>
 </header>
 
 <section id="concepto">
-  <div class="section-label">01 // DEFINICIÓN</div>
+  <div class="label">01 // DEFINICIÓN</div>
   <h2>¿QUÉ ES EL <span class="highlight">PLAGIO?</span></h2>
 
   <p class="description">
     El plagio consiste en presentar ideas, textos, imágenes
-    o trabajos de otras personas como propios, sin reconocer
-    a su verdadero autor.
-    <br><br>
-    En otras palabras: apropiarse del esfuerzo y la creatividad
-    de alguien más.
+    o trabajos de otras personas como si fueran propios,
+    sin reconocer a su verdadero autor.
   </p>
 
-  <div class="card">
-    <div class="number">!</div>
-    <h3>RECUERDA</h3>
-    <p>
-      No todo lo que encuentras en internet es de uso libre.
-      Que una información esté disponible no significa que
-      puedas atribuirte su autoría.
-    </p>
+  <div class="info-box">
+    <div class="info-icon">💡</div>
+    <div>
+      <h3 style="margin-bottom:10px">EN POCAS PALABRAS</h3>
+      <p>
+        Apropiarse del esfuerzo y la creatividad de alguien más.
+        Que algo esté disponible en internet no significa que
+        puedas atribuirte su autoría.
+      </p>
+    </div>
   </div>
 </section>
 
 <section class="dark-section" id="tipos">
-  <div class="section-label">02 // IDENTIFICACIÓN</div>
+  <div class="label">02 // IDENTIFICACIÓN</div>
   <h2>TIPOS DE <span class="highlight">PLAGIO</span></h2>
-
   <p class="description">
-    No siempre es copiar y pegar. Existen distintas formas
-    de utilizar contenido ajeno sin darle el reconocimiento
-    correspondiente.
+    No siempre es copiar y pegar. Estas son algunas de las
+    formas más comunes de plagio.
   </p>
 
   <div class="cards">
 
     <div class="card">
-      <div class="number">01</div>
+      <div class="card-icon">📋</div>
+      <div class="number">TYPE_01</div>
       <h3>Plagio textual</h3>
-      <p>Copiar directamente un texto sin citar ni reconocer
-      a su autor.</p>
+      <p>Copiar directamente un texto sin citar ni reconocer a su autor.</p>
     </div>
 
     <div class="card">
-      <div class="number">02</div>
+      <div class="card-icon">💭</div>
+      <div class="number">TYPE_02</div>
       <h3>Plagio de ideas</h3>
-      <p>Utilizar pensamientos o propuestas ajenas
-      presentándolas como propias.</p>
+      <p>Utilizar pensamientos o propuestas ajenas presentándolas como propias.</p>
     </div>
 
     <div class="card">
-      <div class="number">03</div>
+      <div class="card-icon">🔄</div>
+      <div class="number">TYPE_03</div>
       <h3>Autoplagio</h3>
-      <p>Presentar un trabajo propio anterior como si fuera
-      completamente nuevo, sin aclararlo cuando corresponde.</p>
+      <p>Presentar un trabajo propio anterior como si fuera nuevo, sin aclararlo cuando corresponde.</p>
     </div>
 
     <div class="card">
-      <div class="number">04</div>
+      <div class="card-icon">🎨</div>
+      <div class="number">TYPE_04</div>
       <h3>Plagio visual</h3>
-      <p>Utilizar ilustraciones, fotografías o creaciones
-      ajenas sin reconocer su procedencia.</p>
+      <p>Utilizar ilustraciones, fotografías o creaciones ajenas sin reconocer su procedencia.</p>
     </div>
 
   </div>
 </section>
 
 <section>
-  <div class="section-label">03 // CONSECUENCIAS</div>
+  <div class="label">03 // CONSECUENCIAS</div>
   <h2>¿QUÉ PASA SI <span class="highlight">PLAGIAS?</span></h2>
 
+  <p class="description">
+    El plagio afecta tanto el aprendizaje como la confianza
+    y el reconocimiento del trabajo de los demás.
+  </p>
+
   <div class="list">
-    <div class="list-item">
-      <span class="symbol">✕</span>
-      Pérdida de credibilidad y confianza.
-    </div>
-
-    <div class="list-item">
-      <span class="symbol">✕</span>
-      Calificaciones bajas o anulación de trabajos.
-    </div>
-
-    <div class="list-item">
-      <span class="symbol">✕</span>
-      Posibles sanciones académicas.
-    </div>
-
-    <div class="list-item">
-      <span class="symbol">✕</span>
-      Problemas relacionados con los derechos de autor.
-    </div>
-
-    <div class="list-item">
-      <span class="symbol">✕</span>
-      Menor desarrollo de la creatividad y el pensamiento crítico.
-    </div>
+    <div class="list-item"><span class="symbol">✕</span> Pérdida de credibilidad y confianza.</div>
+    <div class="list-item"><span class="symbol">✕</span> Calificaciones bajas o anulación de trabajos.</div>
+    <div class="list-item"><span class="symbol">✕</span> Posibles sanciones académicas.</div>
+    <div class="list-item"><span class="symbol">✕</span> Problemas relacionados con los derechos de autor.</div>
+    <div class="list-item"><span class="symbol">✕</span> Menor desarrollo de la creatividad y el pensamiento crítico.</div>
   </div>
 </section>
 
 <section class="dark-section" id="solucion">
-  <div class="section-label">04 // PREVENCIÓN</div>
+  <div class="label">04 // PREVENCIÓN</div>
   <h2>¿CÓMO EVITAR EL <span class="highlight">PLAGIO?</span></h2>
 
   <p class="description">
@@ -469,68 +590,51 @@ footer strong {
   </p>
 
   <div class="cards">
-
     <div class="card">
-      <div class="number">01</div>
+      <div class="card-icon">🔎</div>
+      <div class="number">STEP_01</div>
       <h3>Investiga</h3>
       <p>Consulta fuentes confiables y compara información.</p>
     </div>
 
     <div class="card">
-      <div class="number">02</div>
+      <div class="card-icon">🧠</div>
+      <div class="number">STEP_02</div>
       <h3>Comprende</h3>
       <p>Lee, analiza y explica lo aprendido con tus propias palabras.</p>
     </div>
 
     <div class="card">
-      <div class="number">03</div>
+      <div class="card-icon">✍️</div>
+      <div class="number">STEP_03</div>
       <h3>Cita</h3>
       <p>Reconoce a los autores cuando utilices sus ideas o textos.</p>
     </div>
 
     <div class="card">
-      <div class="number">04</div>
+      <div class="card-icon">📚</div>
+      <div class="number">STEP_04</div>
       <h3>Referencias</h3>
       <p>Incluye una bibliografía con las fuentes consultadas.</p>
     </div>
-
   </div>
 </section>
 
 <section>
-  <div class="section-label">05 // ZONA DE ALERTA</div>
+  <div class="label">05 // ZONA DE ALERTA</div>
   <h2>LO QUE NO DEBES <span class="highlight">HACER</span></h2>
 
   <div class="list">
-    <div class="list-item">
-      <span class="symbol">!</span>
-      Copiar y pegar sin reconocer la fuente.
-    </div>
-
-    <div class="list-item">
-      <span class="symbol">!</span>
-      Cambiar algunas palabras y atribuirte todo el texto.
-    </div>
-
-    <div class="list-item">
-      <span class="symbol">!</span>
-      Presentar trabajos de otras personas como propios.
-    </div>
-
-    <div class="list-item">
-      <span class="symbol">!</span>
-      Utilizar imágenes ajenas sin reconocer su procedencia.
-    </div>
-
-    <div class="list-item">
-      <span class="symbol">!</span>
-      Inventar autores o referencias bibliográficas.
-    </div>
+    <div class="list-item"><span class="symbol">!</span> Copiar y pegar sin reconocer la fuente.</div>
+    <div class="list-item"><span class="symbol">!</span> Cambiar algunas palabras y atribuirte todo el texto.</div>
+    <div class="list-item"><span class="symbol">!</span> Presentar trabajos ajenos como propios.</div>
+    <div class="list-item"><span class="symbol">!</span> Utilizar imágenes ajenas sin reconocer su procedencia.</div>
+    <div class="list-item"><span class="symbol">!</span> Inventar autores o referencias bibliográficas.</div>
   </div>
 </section>
 
 <section class="dark-section">
-  <div class="section-label">06 // REFLEXIÓN</div>
+  <div class="label">06 // REFLEXIÓN</div>
   <h2>UNA IDEA QUE <span class="highlight">IMPORTA</span></h2>
 
   <div class="quote">
@@ -542,7 +646,7 @@ footer strong {
 </section>
 
 <section id="quiz">
-  <div class="section-label">07 // TEST DE ORIGINALIDAD</div>
+  <div class="label">07 // TEST DE ORIGINALIDAD</div>
   <h2>¿QUÉ TANTO <span class="highlight">APRENDISTE?</span></h2>
 
   <p class="description">
@@ -551,11 +655,8 @@ footer strong {
 
   <div class="quiz">
     <div class="tag" id="progress">PREGUNTA 01 / 05</div>
-
-    <p id="question">¿Qué es el plagio?</p>
-
+    <p id="question"></p>
     <div id="answers"></div>
-
     <div id="feedback"></div>
   </div>
 </section>
@@ -564,142 +665,108 @@ footer strong {
   <strong>PLAGIO.EXE</strong><br>
   CAMPAÑA DE CONCIENTIZACIÓN ACADÉMICA<br>
   CREA · APRENDE · RECONOCE<br><br>
-  <span>Las ideas tienen valor. Respeta su origen.</span>
+  Las ideas tienen valor. Respeta su origen.
 </footer>
 
 <script>
 const questions = [
-  {
-    q: "¿Qué es el plagio?",
-    a: [
-      "Presentar ideas ajenas como propias.",
-      "Investigar en internet.",
-      "Aprender algo nuevo."
-    ],
-    correct: 0
-  },
-  {
-    q: "¿Qué debes hacer si utilizas un texto de otra persona?",
-    a: [
-      "Cambiar el título.",
-      "Reconocer al autor y citar la fuente.",
-      "Eliminar su nombre."
-    ],
-    correct: 1
-  },
-  {
-    q: "¿Cuál es un ejemplo de plagio visual?",
-    a: [
-      "Crear una ilustración propia.",
-      "Tomar una fotografía y reconocer al autor.",
-      "Usar una ilustración ajena sin reconocer su procedencia."
-    ],
-    correct: 2
-  },
-  {
-    q: "¿Cuál es una consecuencia del plagio?",
-    a: [
-      "Pérdida de credibilidad.",
-      "Mayor creatividad.",
-      "Mejor aprendizaje automático."
-    ],
-    correct: 0
-  },
-  {
-    q: "¿Cómo puedes evitar el plagio?",
-    a: [
-      "Copiando y cambiando algunas palabras.",
-      "Investigando, comprendiendo y citando.",
-      "Ocultando las fuentes."
-    ],
-    correct: 1
-  }
+{
+q:"¿Qué es el plagio?",
+a:["Presentar ideas ajenas como propias.","Investigar en internet.","Aprender algo nuevo."],
+correct:0
+},
+{
+q:"¿Qué debes hacer si utilizas un texto de otra persona?",
+a:["Cambiar el título.","Reconocer al autor y citar la fuente.","Eliminar su nombre."],
+correct:1
+},
+{
+q:"¿Cuál es un ejemplo de plagio visual?",
+a:["Crear una ilustración propia.","Reconocer al fotógrafo.","Usar una ilustración ajena sin reconocer su procedencia."],
+correct:2
+},
+{
+q:"¿Cuál es una consecuencia del plagio?",
+a:["Pérdida de credibilidad.","Mayor creatividad.","Mejor aprendizaje automático."],
+correct:0
+},
+{
+q:"¿Cómo puedes evitar el plagio?",
+a:["Copiando y cambiando palabras.","Investigando, comprendiendo y citando.","Ocultando las fuentes."],
+correct:1
+}
 ];
 
-let current = 0;
-let score = 0;
-let answered = false;
+let current=0;
+let score=0;
+let answered=false;
 
-function showQuestion() {
-  answered = false;
+function showQuestion(){
+  answered=false;
+  const q=questions[current];
 
-  const q = questions[current];
+  document.getElementById("progress").textContent=
+  "PREGUNTA "+String(current+1).padStart(2,"0")+" / 05";
 
-  document.getElementById("progress").textContent =
-    "PREGUNTA " + String(current + 1).padStart(2, "0") + " / 05";
+  document.getElementById("question").textContent=q.q;
+  document.getElementById("feedback").textContent="";
 
-  document.getElementById("question").textContent = q.q;
-  document.getElementById("feedback").textContent = "";
+  const box=document.getElementById("answers");
+  box.innerHTML="";
 
-  const answers = document.getElementById("answers");
-  answers.innerHTML = "";
-
-  q.a.forEach((answer, index) => {
-    const button = document.createElement("button");
-    button.textContent = answer;
-    button.onclick = () => checkAnswer(index);
-    answers.appendChild(button);
+  q.a.forEach((answer,index)=>{
+    const btn=document.createElement("button");
+    btn.textContent=answer;
+    btn.onclick=()=>checkAnswer(index);
+    box.appendChild(btn);
   });
 }
 
-function checkAnswer(index) {
-  if (answered) return;
-  answered = true;
+function checkAnswer(index){
+  if(answered)return;
+  answered=true;
 
-  const correct = questions[current].correct;
-  const buttons = document.querySelectorAll("#answers button");
+  const q=questions[current];
+  const correct=index===q.correct;
 
-  if (index === correct) {
-    score++;
-    document.getElementById("feedback").textContent =
-      "✓ ¡Correcto! ¡Buen trabajo!";
-  } else {
-    document.getElementById("feedback").textContent =
-      "✕ No exactamente. La respuesta correcta era: " +
-      questions[current].a[correct];
-  }
+  if(correct)score++;
 
-  buttons.forEach(button => button.disabled = true);
+  document.getElementById("feedback").textContent=
+  correct
+  ?"✓ ¡Correcto! ¡Buen trabajo!"
+  :"✕ No exactamente. Respuesta: "+q.a[q.correct];
 
-  const next = document.createElement("button");
-  next.textContent = current === 4 ? "VER RESULTADO →" : "SIGUIENTE →";
-  next.style.borderColor = "#ff4fc8";
-  next.style.marginTop = "20px";
+  document.querySelectorAll("#answers button").forEach(b=>b.disabled=true);
 
-  next.onclick = () => {
+  const next=document.createElement("button");
+  next.textContent=current===4?"VER RESULTADO →":"SIGUIENTE →";
+
+  next.onclick=()=>{
     current++;
-
-    if (current < questions.length) {
-      showQuestion();
-    } else {
-      showResult();
-    }
+    if(current<questions.length)showQuestion();
+    else showResult();
   };
 
   document.getElementById("answers").appendChild(next);
 }
 
-function showResult() {
-  document.getElementById("progress").textContent =
-    "ANÁLISIS COMPLETADO";
+function showResult(){
+  document.getElementById("progress").textContent="ANÁLISIS COMPLETADO";
+  document.getElementById("question").textContent="OBTUVISTE "+score+" / 5";
+  document.getElementById("answers").innerHTML="";
 
-  document.getElementById("question").textContent =
-    "OBTUVISTE " + score + " / 5";
+  document.getElementById("feedback").textContent=
+  score===5
+  ?"★ ¡EXCELENTE! Dominas el tema de la originalidad."
+  :score>=3
+  ?"¡BUEN TRABAJO! Sigue aprendiendo."
+  :"¡A SEGUIR APRENDIENDO! Explora nuevamente la página.";
 
-  document.getElementById("answers").innerHTML = "";
-
-  document.getElementById("feedback").textContent =
-    score === 5
-      ? "¡EXCELENTE! Dominas el tema de la originalidad."
-      : score >= 3
-      ? "¡BUEN TRABAJO! Sigue practicando y aprendiendo."
-      : "¡A SEGUIR APRENDIENDO! Puedes volver a explorar la página.";
-
-  const restart = document.createElement("button");
-  restart.textContent = "REPETIR TEST ↻";
-  restart.onclick = () => {
-    current = 0;
-    score = 0;
+  const restart=document.createElement("button");
+  restart.textContent="REPETIR TEST ↻";
+  restart.onclick=()=>{
+    current=0;
+    score=0;
     showQuestion();
   };
 
